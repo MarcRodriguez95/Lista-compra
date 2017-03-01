@@ -1,0 +1,51 @@
+
+<body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <div class="container">
+    <header>
+	<meta charset="UTF-8">
+      <h1>Lista de la compra ({{incompleteCount}})</h1>
+	  
+	  <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+	  
+	  {{> loginButtons}}
+	  	  {{#if currentUser.username}}
+		<form class="modo-privado">
+			<input type="checkbox" />
+		</form>
+		
+		<form class="selector">
+			<input type="checkbox" />
+		</form>
+	  {{/if}}
+	  
+	  {{#if currentUser.username}}
+		<form class="new-task">
+			<input type="number" name="cantidad" min="1"  max="999" placeholder="Cantidad"/> 
+			<input type="text" name="text" placeholder="Escribe para añadir compra"/>
+			<select name="lugar">    
+				<option value="fruta">Fruita</option>
+				<option value="congelado">Congelats</option>
+				<option value="super">Super</option>
+			</select>
+			<input type="submit" value="Añadir compra">
+		</form>
+	  {{/if}}
+	  
+	  
+	  
+	
+    </header>
+ 
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
