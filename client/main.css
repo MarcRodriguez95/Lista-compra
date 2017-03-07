@@ -1,8 +1,8 @@
 /* CSS declarations go here */
 body {
-  font-family: sans-serif;
-  background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background-color: #7FFFD4;
+  background-image: linear-gradient(to bottom, #7FFFD4, #6495ED 100%);
   background-attachment: fixed;
  
   position: absolute;
@@ -14,19 +14,19 @@ body {
   padding: 0;
   margin: 0;
  
-  font-size: 14px;
+  font-size: 13px;
 }
  
 .container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   min-height: 100%;
-  background: white;
+  background: #FFF8DC;
 }
  
 header {
-  background: #d2edf4;
-  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+  background: #FFF8DC;
+  background-image: linear-gradient(to bottom, #d0edf5, #6495ED 100%);
   padding: 20px 15px 15px 15px;
   position: relative;
 }
@@ -47,6 +47,12 @@ form {
   margin-top: 10px;
   margin-bottom: -10px;
   position: relative;
+}
+
+.opciones {
+    margin-bottom: 1%;
+    margin-top: 2%;
+
 }
  
 .new-task input {
@@ -69,21 +75,21 @@ ul {
   background: white;
 }
 
-ul .lugar:fruta
+ul .fruta
 {
   margin: 0;
   padding: 0;
   background: green;
 }
 
-ul .lugar:congelado
+ul>.congelado
 {
   margin: 0;
   padding: 0;
   background: yellow;
 }
 
-ul .lugar:super
+ul .super
 {
   margin: 0;
   padding: 0;
@@ -146,3 +152,15 @@ header .hide-completed {
     padding-bottom: 5px;
   }
 }
+
+h1{
+	font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+	
+}
+
+::-webkit-input-placeholder { 
+    color: #24292e;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+.

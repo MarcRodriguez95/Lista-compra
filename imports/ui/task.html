@@ -1,10 +1,11 @@
 <template name="task">
+{{#if currentUser.username}}
   <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
     <button class="delete">&times;</button>
  
     <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
 	
-	{{#if isOwner}}
+	
       <button class="toggle-private">
         {{#if private}}
           Private
@@ -12,8 +13,9 @@
           Public
         {{/if}}
       </button>
-    {{/if}}
+    
 	
     <span class="text"><strong>{{username}}</strong> - {{cantidad}} {{text}}, en {{lugar}}</span>
   </li>
+  {{/if}}
 </template>

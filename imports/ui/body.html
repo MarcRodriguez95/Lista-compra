@@ -9,31 +9,45 @@
 	  
 	  <label class="hide-completed">
         <input type="checkbox" />
-        Hide Completed Tasks
+        Esconder los items comprados
       </label>
 	  
 	  {{> loginButtons}}
-	  	  {{#if currentUser.username}}
-		<form class="modo-privado">
-			<input type="checkbox" />
-		</form>
-		
-		<form class="selector">
-			<input type="checkbox" />
-		</form>
-	  {{/if}}
+
 	  
 	  {{#if currentUser.username}}
 		<form class="new-task">
-			<input type="number" name="cantidad" min="1"  max="999" placeholder="Cantidad"/> 
-			<input type="text" name="text" placeholder="Escribe para añadir compra"/>
-			<select name="lugar">    
-				<option value="fruta">Fruita</option>
-				<option value="congelado">Congelats</option>
-				<option value="super">Super</option>
+			<input type="number" class="cantidad" name="cantidad" min="1"  max="999" placeholder="Cantidad" style="width:40%;"/> 
+			<input type="text" class="text" name="text" placeholder="Escribe para añadir compra" style="width:50%;"/>
+			<select name="lugar" class="lugar">    
+				<option class="fruta" value="fruteria">Fruteria</option>
+				<option class="congelado" value="congelado">Congelats</option>
+				<option class="super" value="super">Super</option>
 			</select>
 			<input type="submit" value="Añadir compra">
+
+		
 		</form>
+		
+		<form class="opciones">
+		<label class="general">
+		<input type="checkbox" name="PlaceFilter" checked="cheked"/>General
+		</label>
+		
+		<label class="frutas">
+		<input type="checkbox" name="PlaceFilter"/>Fruteria
+		</label>
+		
+		<label class="congelados">
+		<input type="checkbox" name="PlaceFilter" />Congelados
+		</label>
+		
+		<label class="supers">
+		<input type="checkbox" name="PlaceFilter" />Super
+		</label>
+		
+		</form>
+		
 	  {{/if}}
 	  
 	  

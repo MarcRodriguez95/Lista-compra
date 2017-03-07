@@ -17,7 +17,7 @@ Template.task.events({
    /* Tasks.update(this._id, {
       $set: { checked: ! this.checked },
     }); */
-	Meteor.call('tasks.setChecked', this._id, !this.checked);
+	Meteor.call('tasks.setChecked', this._id, !this.checked, { sort: { checked: false} });
   },
   /*
   'click .delete'() {

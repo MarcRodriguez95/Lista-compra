@@ -16,17 +16,49 @@ Template.body.helpers({
   tasks() {
 	const instance = Template.instance();
 	
-    if (instance.state.get('hideCompleted')) {
-      // If hide completed is checked, filter tasks
-      return Tasks.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-    }else{
-    // Otherwise, return all of the tasks
-    return Tasks.find({}, { sort: { createdAt: -1 } });
-	}
-  },
-    incompleteCount() {
+
+if (instance.state.get('hideCompleted')) {
+
+  if(instance.state.get('frutas')) {
+    return Tasks.find({$and: [{ checked:{$ne: true}, lugar:{ $eq:"fruteria"}}]}, {sort: {checked: 1, createdAt: -1}});
+  }
+  else if(instance.state.get('congelados')) {
+    return Tasks.find({$and: [{checked: {$ne: true}, lugar: {$eq:"congelado"}}]}, {sort: {checked:1, createdAt: -1}});
+  }
+  else if(instance.state.get('supers')){
+    return Tasks.find({$and: [{checked: {$ne: true}, lugar: {$eq:"super"}}]}, {sort:{checked:1, createdAt: -1}});
+  }
+  else if(instance.state.get('general')){
+  return Tasks.find({ checked: { $ne: true }}, { sort: { checked: 1 , createdAt: -1} });
+  }
+  else{
+  return Tasks.find({ checked: { $ne: true } }, { sort: { checked:1, createdAt: -1 } });
+  }
+  
+}else {
+    if(instance.state.get('frutas')) {
+      return Tasks.find({lugar: {$eq:"fruteria"}}, {sort:{checked:1, createdAt: -1}});
+    };
+    if(instance.state.get('congelados')) {
+      return Tasks.find({lugar: {$eq:"congelado"}}, {sort:{checked:1, createdAt: -1}});
+    };
+    if(instance.state.get('supers')){
+      return Tasks.find({lugar: {$eq:"super"}}, {sort: {checked: 1, createdAt: -1}});
+    };
+    if(instance.state.get('general')){
+      return Tasks.find({}, {sort: {checked: 1, createdAt: -1}});
+    };
+
+
+return Tasks.find({}, { sort: { createdAt: -1 } });
+
+}
+},
+  incompleteCount() {
     return Tasks.find({ checked: { $ne: true } }).count();
-	},
+  },
+  
+
 });
 
 Template.body.events({
@@ -52,7 +84,37 @@ Template.body.events({
 	},
 
 	
-	'change .hide-completed input'(event, instance) {
+  'change .hide-completed input'(event, instance) {
     instance.state.set('hideCompleted', event.target.checked);
   },
+  
+  
+  'change .general input'(event, instance) {
+    instance.state.set('general', event.target.checked);
+	instance.state.set('frutas', false);
+	instance.state.set('supers', false);
+	instance.state.set('congelados', false);
+  },
+  
+    'change .frutas input'(event, instance) {
+    instance.state.set('frutas', event.target.checked);
+	instance.state.set('general', false);
+	instance.state.set('supers', false);
+	instance.state.set('congelados', false);
+  },
+  
+    'change .supers input'(event, instance) {
+    instance.state.set('supers', event.target.checked);
+	instance.state.set('general', false);
+	instance.state.set('frutas', false);
+	instance.state.set('congelados', false);
+  },
+  
+    'change .congelados input'(event, instance) {
+    instance.state.set('congelados', event.target.checked);
+	instance.state.set('general', false);
+	instance.state.set('frutas', false);
+	instance.state.set('supers', false);
+  },
+  
 });
