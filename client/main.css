@@ -56,7 +56,7 @@ form {
 }
  
 .new-task input {
-  box-sizing: border-box;
+  
   padding: 10px 0;
   background: transparent;
   border: none;
@@ -82,7 +82,7 @@ ul .fruta
   background: green;
 }
 
-ul>.congelado
+ul .congelado
 {
   margin: 0;
   padding: 0;
@@ -163,4 +163,14 @@ h1{
 	font-family:"Trebuchet MS", Helvetica, sans-serif;
 }
 
-.
+input[type=text]{
+	border-bottom: solid 1px;
+}
+
+input[type=number]{
+	border-bottom: solid 1px;
+}
+
+input[type=submit]{
+	border-bottom: solid 1px;
+}
