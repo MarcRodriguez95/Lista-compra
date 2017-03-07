@@ -162,3 +162,15 @@ h1{
     color: #24292e;
 	font-family:"Trebuchet MS", Helvetica, sans-serif;
 }
+
+input[type=text]{
+	border-bottom: solid 1px;
+}
+
+input[type=number]{
+	border-bottom: solid 1px;
+}
+
+input[type=submit]{
+	border-bottom: solid 1px;
+}
