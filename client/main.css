@@ -56,7 +56,7 @@ form {
 }
  
 .new-task input {
-  box-sizing: border-box;
+  
   padding: 10px 0;
   background: transparent;
   border: none;
