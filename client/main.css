@@ -56,7 +56,6 @@ form {
 }
  
 .new-task input {
-  
   padding: 10px 0;
   background: transparent;
   border: none;
@@ -174,3 +173,4 @@ input[type=number]{
 input[type=submit]{
 	border-bottom: solid 1px;
 }
+
